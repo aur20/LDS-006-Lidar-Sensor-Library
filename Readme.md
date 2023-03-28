@@ -23,6 +23,13 @@ source venv/bin/activate
 pip install -r requirements.txt
 python setup.py bdist_wheel
 pip install dist/lds006*.whl
+ln lds006/msgLDS.proto example/website/msgLDS.proto
+```
+**Or** use the Dockerfile
+```
+docker build -t lidar .
+docker run -it --device=/dev/serial0 -p5000:5000 lidar sh
+python3 examples/web/main.py /dev/serial0
 ```
 
 ## How to use  library
@@ -39,10 +46,12 @@ Example can be run by:
 . venv/bin/activate
 python examples/simple.py /dev/serial0
 python examples/callback.py /dev/serial0
-python examples/website/callback.py /dev/serial0
+python examples/website/main.py /dev/serial0
 ```
 
 ## Thougts on used software
+
+The library will open serial device from the passed string. This is done by [pyserial](https://pythonhosted.org/pyserial/) from within the class. The library will also close serial device when destroying manager object. At all, such behaviour is not best practice but in the scope of this project I could not inherit from `serial.Serial`. Passing an object to the library would be better but who is responsible to close it?
 
 In the latest patch I completely removed filtering (so NumPy is not used). Filtering data seems to be not required. I reverted to distinguish good from bad data by using the `reflectivity`-factor. Still, there appear runaway data points, which are marked invalid if they exceed standard deviation.
 

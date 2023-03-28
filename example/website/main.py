@@ -72,5 +72,5 @@ if __name__ == "__main__":
                 lds.unregisterCB(cb_hash)
             return "\n\n"
 
-        app.run(debug=True, threaded=True)
+        app.run(host='0.0.0.0', debug=True, threaded=True)
 
