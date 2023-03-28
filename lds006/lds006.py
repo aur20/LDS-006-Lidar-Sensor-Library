@@ -261,7 +261,7 @@ class LDSSerialManager(object):
             msg.certainty = False
             good_expression = (self.__get_int(data[6+4*x],data[7+4*x]) > self.__min_reflectivity and abs(msg.distance - self.__mean_old) < 2 * self.__deviation)
             if self.__include_bad_data:
-                self.__mean += _msg.distance
+                self.__mean += msg.distance
                 if good_expression:
                     msg.certainty = True
                 self.__data_append.data.append(msg)

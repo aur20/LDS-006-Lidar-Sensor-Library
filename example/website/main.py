@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import sys, json, flask
+import sys, flask
 from queue import Queue
 from lds006.lds006 import LDSSerialManager
 
