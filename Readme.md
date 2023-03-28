@@ -23,7 +23,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 python setup.py bdist_wheel
 pip install dist/lds006*.whl
-ln lds006/msgLDS.proto example/website/msgLDS.proto
+ln -s lds006/msgLDS.proto example/website/msgLDS.proto
 ```
 **Or** use the Dockerfile
 ```
