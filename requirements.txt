@@ -5,4 +5,10 @@ twine
 
 # Requirements by library
 pyserial
- 
+
+# Requirements by the example application
+# Additionally required: sudo apt-get install python3-numpy
+# or
+# install with pip here, apt install libatlas-dev
+flask
+protobuf
