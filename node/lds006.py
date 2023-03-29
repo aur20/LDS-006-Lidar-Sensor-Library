@@ -3,7 +3,7 @@ import serial
 from threading import Thread, Event, Lock
 from enum import Enum
 from statistics import pstdev
-import lds006.msgLDS_pb2 as msgLDS_pb2
+import msgLDS_pb2 as msgLDS_pb2
 
 class LDSSerialManager(object):  
 
