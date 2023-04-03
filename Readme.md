@@ -23,7 +23,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 python setup.py bdist_wheel
 pip install dist/lds006*.whl
-ln -s lds006/msgLDS.proto example/website/msgLDS.proto
+ln lds006/msgLDS.proto example/website/msgLDS.proto
 ```
 **Or** use the Dockerfile
 ```
@@ -48,6 +48,13 @@ python examples/simple.py /dev/serial0
 python examples/callback.py /dev/serial0
 python examples/website/main.py /dev/serial0
 ```
+
+## Results
+
+A nice demonstration is given in the pictures below. It shows the website with the sensor data drawn in a canvas. The first picture only draws the `good` data values. In the second picture also the `bad` data values are drawn in red. The bad data is scaled by dividing measurement points by `40000` which the maximum value returned by the sensor.
+
+![](images/lds_website.png)
+![](images/lds_website_all.png)
 
 ## Thougts on used software
 
