@@ -41,7 +41,7 @@ if __name__ == '__main__':
             points = []
             for i in msg.data:
                 if i.distance > 400 and i.distance < 10000:
-                    points.append([i.distance / 1000 * math.cos(i.angle / 180. * math.pi), i.distance / 1000 * math.sin(i.angle / 180. * math.pi), 0, 0xFFFF])
+                    points.append([i.distance / 1000 * math.cos(i.angle / 180. * math.pi), i.distance / 1000 * math.sin(-i.angle / 180. * math.pi), 0, 0xFFFF])
 
             header.stamp = rospy.Time.now()
             pc = point_cloud2.create_cloud(header, fields, points)
